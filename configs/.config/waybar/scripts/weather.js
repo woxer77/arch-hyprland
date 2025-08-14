@@ -1,8 +1,9 @@
 (async function () {
   try {
     const response = await fetch('https://wttr.in/?format=j1');
-    const weather = (await response.json())?.weather;
-
+    const { weather, nearest_area: nearestArea } = await response.json();
+    const city = nearestArea[0].areaName[0].value;
+    const country = nearestArea[0].country[0].value;
     const WEATHER_CODES = {
       113: '☀️',
       116: '⛅',
@@ -86,7 +87,7 @@
 
       if (daysDifference === 0) {
         return {
-          output: `<b>Today, ${dateString}</b>\n`,
+          output: `<b>Today, ${dateString}, ${city}(${country})</b>\n`,
           idx: Math.floor(currHour / API_HOURS_GAP)
         };
       } else if (daysDifference === 1) {
