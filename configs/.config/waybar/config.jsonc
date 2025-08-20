@@ -38,7 +38,6 @@
       "code": "󰨞",
       "brave": "",
       "kitty": "",
-      "thunar": "",
       "vlc": "󰕼",
       "figma": "",
       "spotify": "",
@@ -46,7 +45,8 @@
       "pavucontrol": "",
       "loupe": "",
       "firefox": "",
-      "libre": "󰈙"
+      "libre": "󰈙",
+      "nautilus": ""
     }
   },
 
