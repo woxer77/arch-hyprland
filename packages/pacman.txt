@@ -5,6 +5,7 @@ waybar
 libreoffice-still
 reflector
 ntfs-3g
+mousepad
 7zip
 hyprpolkitagent
 spotify-launcher
