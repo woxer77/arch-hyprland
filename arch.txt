@@ -20,77 +20,23 @@ Profile -> Minimal
 Network configuration -> Network manager
 Timezone -> Europe/Kyiv
 Install
-Would you like to chroot into newly... -> Yes
-pacman -Syu
 
-[grub]
-pacman -S grub efibootmgr dosfstools mtools
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
-grub-mkconfig -o /boot/grub/grub.cfg
-exit
-shutdown now
+Choose reboot system
+Change boot priority to Limine
 
-(Put the flash out)
-(launch pc)
+launch linux
+sudo pacman -Syu
+sudo pacman -S git nano
 
-sudo pacman -S nano
-sudo nano /etc/default/grub
-GRUB_TIMEOUT=30
-(uncomment) #GRUB_DISABLE_OS_PROBER=false
-sudo pacman -S os-prober
-sudo grub-mkconfig -o /boot/grub/grub.cfg
-(does Windows found?)
-yes: good
-no:
-sudo fdisk -l
-(search for Type BIOS boot | Size 100M)
-sudo blkid /dev/<Device>sda1
-(copy UUID)
-sudo nano /etc/grub.d/40_custom
-(paste:)
-menuentry "Windows" --class windows --class os {
-  search --fs-uuid --no-floppy --set=root <<<<UUID_Here>>>>
-  chainloader (${root})/EFI/Microsoft/Boot/bootmgfw.efi
-}
-sudo grub-mkconfig -o /boot/grub/grub.cfg
-(reboot - all good)
-[/grub]
+git clone https://github.com/woxer77/arch-hyprland.git
+cd arch-hyprland
+chmod +x ./install.sh
+./install.sh
+reboot
 
-[systemd-boot]
-fdisk -l
-sudo pacman -S edk2-shell
-cp /usr/share/edk2-shell/x64/Shell.efi /boot/efishellx64.efi
-cd /boot/loader/entries
-ls -al
-nano efishellx64.conf
-[start file]
-title  UEFI Shell x64
-efi    /efishellx64.efi
-[end file]
-ls -al
-blkid
-(remember PARTUUID of Windows EFI)
-shutdown now
+launch linux 
+sudo limine-scan -> Windows Boot Loader
+sudo nano /boot/limine.conf
+change time from 3s to 15s
 
-(Put the flash out)
-(launch pc)
 
-(load as UEFI Shell x64)
-map
-(page up/page down)
-(search for PARTUUID remembered)
-(remember HD0a0b:;BLK1: |  in the part FS0: Alias(s): ...)
-reset
-su -
-cd /boot/loader/entries
-ls -al
-nano windows10.conf
-[start file]
-title    Windows 10
-efi      /efishellx64.efi
-options  -nointerrupt -nomap -noversion HD0a0b:EFI\Microsoft\Boot\Bootmgfw.efi
-[end file]
-nano /boot/loader/loader.conf
-timeout 15
-(reboot. done.)
-[/systemd-boot]

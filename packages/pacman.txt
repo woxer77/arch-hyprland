@@ -1,5 +1,6 @@
 hyprland
 kitty
+limine
 nautilus
 waybar
 libreoffice-still

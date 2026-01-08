@@ -1,5 +1,6 @@
 smem
 visual-studio-code-bin
+limine-entry-tool
 waypaper
 emote
 google-chrome
