@@ -30,7 +30,6 @@ base-devel
 efibootmgr
 dosfstools
 curl
-firefox
 iniparser
 grim
 amd-ucode
