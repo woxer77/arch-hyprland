@@ -47,7 +47,11 @@
       "firefox": "",
       "libre": "󰈙",
       "nautilus": "",
-      "mousepad": "󰎞"
+      "mousepad": "󰎞",
+      "chrome": "",
+      "filezilla": "",
+      "docker": "",
+      "tableplus": ""
     }
   },
 
