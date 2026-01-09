@@ -6,3 +6,4 @@ emote
 google-chrome
 walker
 elephant-all-bin
+catppuccin-gtk-theme-mocha
