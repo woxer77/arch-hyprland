@@ -56,6 +56,15 @@ echo "[+] Copying configuration files..."
 # Fix config permissions
 chmod -R 755 "$HOME/.config" 2>/dev/null || true
 
+# Set default image viewer
+echo "[+] Setting default image viewer to GNOME Loupe..."
+xdg-mime default org.gnome.Loupe.desktop image/jpeg
+xdg-mime default org.gnome.Loupe.desktop image/png
+xdg-mime default org.gnome.Loupe.desktop image/gif
+xdg-mime default org.gnome.Loupe.desktop image/webp
+xdg-mime default org.gnome.Loupe.desktop image/bmp
+xdg-mime default org.gnome.Loupe.desktop image/svg+xml
+
 # Create Downloads directory
 mkdir -p "$HOME/Downloads"
 
@@ -69,15 +78,6 @@ fi
 # Copy wallpapers
 if [ -d "$REPO_DIR/Wallpapers" ]; then
   cp -r "$REPO_DIR/Wallpapers" "$HOME/Wallpapers"
-fi
-
-# Ask before installing Gemini CLI
-read -p "[?] Do you want to install Gemini CLI? (y/N): " gemini_choice
-if [[ "$gemini_choice" =~ ^[Yy]$ ]]; then
-  echo "[+] Installing Gemini CLI..."
-  sudo npm install -g @google/gemini-cli
-else
-  echo "[-] Skipping Gemini CLI installation."
 fi
 
 # reflector configuration (arch servers installation)
@@ -97,7 +97,6 @@ echo "UUID=6A18EBE718EBAFED /mnt/e ntfs-3g defaults,nofail 0 0" | sudo tee -a /e
 
 echo "[!] REMINDER: For OpenVPN place '.ovpn' configuration file in '$HOME/.config/openvpn/openvpn.ovpn'"
 echo "[!] REMINDER: Don't forget to configure .ssh for GitHub"
-echo "[!] REMINDER: Don't forget to put Gemini Api Key in .bashrc"
 echo "[!] REMINDER: Don't forget to execute spicetify.ssh if needed"
 
 echo "[✓] Hyprland environment successfully installed and configured!"

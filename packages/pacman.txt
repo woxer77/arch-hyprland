@@ -21,7 +21,7 @@ nano
 cliphist
 fastfetch
 git
-htop
+btop
 hyprpicker
 loupe
 lm_sensors
@@ -49,7 +49,6 @@ networkmanager
 ttf-font-awesome
 ttf-jetbrains-mono-nerd
 ttf-fira-code
-noto-fonts-emoji
 wl-clipboard
 swappy
 slurp
