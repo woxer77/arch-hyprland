@@ -101,6 +101,20 @@ fi
 
 echo "[+] Theme 'Catppuccin-Mocha-Standard-Flamingo-Dark' and icons 'Papirus-Dark' applied successfully!"
 
+# Apply Mousepad settings
+if [ -f "$REPO_DIR/configs/mousepad-settings.txt" ]; then
+  echo "[+] Applying Mousepad settings..."
+  while IFS= read -r line; do
+    # Skip empty lines and comments
+    [[ -z "$line" || "$line" =~ ^[[:space:]]*# ]] && continue
+    # Apply setting using dconf
+    dconf load /org/xfce/mousepad/ <<< "$line"
+  done < "$REPO_DIR/configs/mousepad-settings.txt"
+  echo "[+] Mousepad settings applied successfully!"
+else
+  echo "[-] File configs/mousepad-settings.txt not found!"
+fi
+
 # Set default image viewer
 echo "[+] Setting default image viewer to GNOME Loupe..."
 xdg-mime default org.gnome.Loupe.desktop image/jpeg
