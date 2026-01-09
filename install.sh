@@ -65,7 +65,7 @@ mkdir -p "$HOME/.config/gtk-4.0"
 cat > "$HOME/.config/gtk-3.0/settings.ini" << EOF
 [Settings]
 gtk-theme-name=Catppuccin-Mocha-Standard-Flamingo-Dark
-gtk-icon-theme-name=Papirus-Dark
+gtk-icon-theme-name=Papirus
 gtk-font-name=Sans 10
 gtk-cursor-theme-name=Adwaita
 gtk-cursor-theme-size=24

@@ -4,6 +4,15 @@ limine-entry-tool
 waypaper
 emote
 google-chrome
+elephant-bin
+elephant-providerlist
+elephant-desktopapplications
+elephant-calc-bin
+elephant-files-bin
+elephant-clipboard-bin
+elephant-symbols-bin
+elephant-websearch-bin
+elephant-todo-bin
 walker
-elephant-all-bin
 catppuccin-gtk-theme-mocha
+localsend-bin

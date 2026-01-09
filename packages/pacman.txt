@@ -72,3 +72,4 @@ libva-mesa-driver
 mesa
 openvpn
 nwg-look
+baobab
