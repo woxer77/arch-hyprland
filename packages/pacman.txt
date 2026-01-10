@@ -55,6 +55,7 @@ hyprpicker
 ttf-font-awesome
 ttf-jetbrains-mono-nerd
 ttf-fira-code
+noto-fonts-emoji
 
 # Themes
 materia-gtk-theme

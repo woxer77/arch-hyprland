@@ -5,14 +5,16 @@ waypaper
 google-chrome
 
 elephant-bin
-elephant-providerlist
-elephant-desktopapplications
+elephant-providerlist-bin
+elephant-desktopapplications-bin
 elephant-calc-bin
 elephant-files-bin
 elephant-clipboard-bin
 elephant-symbols-bin
 elephant-websearch-bin
 elephant-todo-bin
+elephant-unicode-bin
+elephant-runner-bin
 
 walker
 catppuccin-gtk-theme-mocha

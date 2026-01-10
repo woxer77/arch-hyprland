@@ -1,5 +1,5 @@
 * {
-  font-family: 'JetBrainsMono Nerd Font';
+  font-family: 'JetBrainsMono Nerd Font', 'Noto Color Emoji', 'Noto Emoji', 'Symbola';
   font-weight: bold;
 
   font-size: 18px;
@@ -187,6 +187,7 @@ tooltip {
 
 #network.disconnected {
   color: #eba0ac;
+  padding-right: 14px;
   animation: blink 2s infinite;
 }
 
@@ -216,16 +217,31 @@ tooltip {
 
 @keyframes blink {
   0% {
-    opacity: 0.3;
+    color: #eba0ac;
+  }
+  12% {
+    color: #b8808c;
+  }
+  25% {
+    color: #85606c;
+  }
+  37% {
+    color: #52404d;
   }
   50% {
-    opacity: 1;
+    color: #1e1e2e;
+  }
+  63% {
+    color: #52404d;
   }
   75% {
-    opacity: 0.8;
+    color: #85606c;
+  }
+  87% {
+    color: #b8808c;
   }
   100% {
-    opacity: 0.3;
+    color: #eba0ac;
   }
 }
 

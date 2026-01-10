@@ -126,7 +126,7 @@
 
   "network": {
     "format": "<span size='16000' foreground='#b4befe'>󰛴</span> {bandwidthDownBits}",
-    "format-disconnected": "<span size='16000' foreground='#eba0ac'>󰱟</span>",
+    "format-disconnected": "<span size='16000'>󰱟</span>",
     "tooltip-format-ethernet": "{ipaddr}/{cidr} 󰊗",
     "tooltip-format-disconnected": "Disconnected",
     "interval": 2

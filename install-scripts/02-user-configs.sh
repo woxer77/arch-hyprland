@@ -27,9 +27,9 @@ mkdir -p "$HOME/.config/gtk-4.0"
 # GTK 3 settings
 cat > "$HOME/.config/gtk-3.0/settings.ini" << EOF
 [Settings]
-gtk-theme-name=Catppuccin-Mocha-Standard-Flamingo-Dark
+gtk-theme-name=catppuccin-mocha-flamingo-standard+default
 gtk-icon-theme-name=Papirus
-gtk-font-name=Sans 10
+gtk-font-name=Sans 14
 gtk-cursor-theme-name=Adwaita
 gtk-cursor-theme-size=24
 gtk-toolbar-style=GTK_TOOLBAR_BOTH_HORIZ
@@ -47,9 +47,9 @@ EOF
 # GTK 4 settings
 cat > "$HOME/.config/gtk-4.0/settings.ini" << EOF
 [Settings]
-gtk-theme-name=Catppuccin-Mocha-Standard-Flamingo-Dark
+gtk-theme-name=catppuccin-mocha-flamingo-standard+default
 gtk-icon-theme-name=Papirus-Dark
-gtk-font-name=Sans 10
+gtk-font-name=Sans 14
 gtk-cursor-theme-name=Adwaita
 gtk-cursor-theme-size=24
 gtk-application-prefer-dark-theme=1
@@ -57,12 +57,22 @@ EOF
 
 # Apply settings using gsettings (for GNOME apps)
 if command -v gsettings &>/dev/null; then
-  gsettings set org.gnome.desktop.interface gtk-theme 'Catppuccin-Mocha-Standard-Flamingo-Dark'
+  gsettings set org.gnome.desktop.interface gtk-theme 'catppuccin-mocha-flamingo-standard+default'
   gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 fi
 
-echo "[+] Theme 'Catppuccin-Mocha-Standard-Flamingo-Dark' and icons 'Papirus-Dark' applied successfully!"
+# Apply theme CSS for GTK3 and GTK4/libadwaita apps (like Nautilus)
+echo "[+] Applying theme CSS for GTK3 and GTK4/libadwaita applications..."
+cat > "$HOME/.config/gtk-3.0/gtk.css" << EOF
+@import url("file:///usr/share/themes/catppuccin-mocha-flamingo-standard+default/gtk-3.0/gtk.css");
+EOF
+
+cat > "$HOME/.config/gtk-4.0/gtk.css" << EOF
+@import url("file:///usr/share/themes/catppuccin-mocha-flamingo-standard+default/gtk-4.0/gtk.css");
+EOF
+
+echo "[+] Theme 'catppuccin-mocha-flamingo-standard+default' and icons 'Papirus-Dark' applied successfully!"
 
 # Apply Mousepad settings
 if [ -f "$REPO_DIR/configs/mousepad-settings.txt" ]; then
