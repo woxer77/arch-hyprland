@@ -1,5 +1,5 @@
 * {
     prompt-font:                 "JetBrainsMono Nerd Font Bold 72";
     textbox-font:                "JetBrainsMono Nerd Font 14";
-    element-text-font:           "feather 72";
+    element-text-font:           "JetBrainsMono Nerd Font 96";
 }
