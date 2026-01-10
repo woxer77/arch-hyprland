@@ -18,6 +18,7 @@
 #mpris,
 #network,
 #custom-vpn,
+#custom-notifications,
 #tray,
 #custom-updates {
   background: #1e1e2e;
@@ -55,6 +56,58 @@
   color: #eba0ac;
   border-bottom: 2px solid #eba0ac;
   transition: all 0.3s ease;
+}
+
+#custom-notifications {
+  margin-right: 6px;
+  font-size: 20px;
+}
+
+#custom-notifications.empty {
+  color: #6c7086;
+}
+
+#custom-notifications.active {
+  color: #a6e3a1;
+  border-bottom: 2px solid #a6e3a1;
+  transition: all 0.3s ease;
+  animation: pulse-notification 2s ease-in-out infinite;
+}
+
+#custom-notifications.dnd {
+  color: #89b4fa;
+  border-bottom: 2px solid #89b4fa;
+  transition: all 0.3s ease;
+}
+
+@keyframes pulse-notification {
+  0% {
+    color: #a6e3a1;
+  }
+  12% {
+    color: #88c481;
+  }
+  25% {
+    color: #6aa561;
+  }
+  37% {
+    color: #4c8641;
+  }
+  50% {
+    color: #1e1e2e;
+  }
+  63% {
+    color: #4c8641;
+  }
+  75% {
+    color: #6aa561;
+  }
+  87% {
+    color: #88c481;
+  }
+  100% {
+    color: #a6e3a1;
+  }
 }
 
 #pulseaudio {

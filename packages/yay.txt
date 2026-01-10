@@ -2,8 +2,8 @@ smem
 visual-studio-code-bin
 limine-entry-tool
 waypaper
-emote
 google-chrome
+
 elephant-bin
 elephant-providerlist
 elephant-desktopapplications
@@ -13,6 +13,7 @@ elephant-clipboard-bin
 elephant-symbols-bin
 elephant-websearch-bin
 elephant-todo-bin
+
 walker
 catppuccin-gtk-theme-mocha
 localsend-bin

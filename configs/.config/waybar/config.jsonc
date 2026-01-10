@@ -11,7 +11,7 @@
     // "temperature#gpu",
     // "cava",
     // "mpris",
-    "custom/vpn",
+    // "custom/vpn",
     "network",
     "temperature#cpu",
     "cpu",

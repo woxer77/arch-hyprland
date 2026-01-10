@@ -1,7 +1,20 @@
 (async function () {
   try {
-    const response = await fetch('https://wttr.in/?format=j1');
-    const { weather, nearest_area: nearestArea } = await response.json();
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000);
+    const response = await fetch('https://wttr.in/?format=j1', { signal: controller.signal });
+    clearTimeout(timeoutId);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    if (!data.weather || !data.nearest_area) {
+      throw new Error('Invalid API response structure');
+    }
+
+    const { weather, nearest_area: nearestArea } = data;
     const city = nearestArea[0].areaName[0].value;
     const country = nearestArea[0].country[0].value;
     const WEATHER_CODES = {
@@ -81,7 +94,7 @@
       );
 
       const date = inputTimeObj.getDate().toString().padStart(2, '0');
-      const month = (inputTimeObj.getMonth() + 1).toString().padStart(2, 0);
+      const month = (inputTimeObj.getMonth() + 1).toString().padStart(2, '0');
       const year = inputTimeObj.getFullYear();
       const dateString = `${date}/${month}/${year}`;
 
@@ -142,18 +155,18 @@
     }
 
     const result = {
-      text: `${WEATHER_CODES[currHourWeather.weatherCode]} ${currHourWeather.tempC}°C`,
+      text: `${WEATHER_CODES[currHourWeather.weatherCode] || '🌡️'} ${currHourWeather.tempC}°C`,
       tooltip: tooltipWeather.join('')
     };
 
     console.log(JSON.stringify(result));
   } catch (error) {
+    console.error(error);
     console.log(
       JSON.stringify({
         text: '⚠️ N/A',
-        tooltip: 'Weather data unavailable'
+        tooltip: `Weather data unavailable: ${error.message}`
       })
     );
-    console.log(error);
   }
 })();
