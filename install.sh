@@ -11,6 +11,17 @@ echo "  Hyprland Environment Installation"
 echo "=========================================="
 echo ""
 
+# Git configuration
+echo "[+] Git Configuration"
+read -p "Enter your git email: " git_email
+read -p "Enter your git username: " git_username
+
+git config --global user.email "$git_email"
+git config --global user.name "$git_username"
+
+echo "[✓] Git configured successfully!"
+echo ""
+
 # Execute installation modules
 echo "[+] Step 1/3: System setup and package installation..."
 bash "$REPO_DIR/install-scripts/01-system-setup.sh"
