@@ -38,5 +38,6 @@ launch linux
 sudo limine-scan -> Windows Boot Loader
 sudo nano /boot/limine.conf
 change time from 3s to 15s
-
+move part of the Linux boot config from
+/boot/limine/limine.conf -> /boot/limine.conf
 
