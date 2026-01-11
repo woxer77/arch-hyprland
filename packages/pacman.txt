@@ -9,6 +9,7 @@ limine
 amd-ucode
 sudo
 man-db
+ufw
 
 # System utilities & drivers
 xf86-video-amdgpu

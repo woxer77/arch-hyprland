@@ -51,4 +51,12 @@ echo "UUID=6A18EBE718EBAFED /mnt/e ntfs-3g defaults,nofail 0 0" | sudo tee -a /e
 echo "[+] Enabling GDM display manager..."
 sudo systemctl enable gdm
 
+# Configure and enable firewall (ufw)
+echo "[+] Configuring firewall (ufw)..."
+sudo systemctl enable --now ufw
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw enable
+echo "[✓] Firewall configured and enabled successfully"
+
 echo "[✓] System configuration completed!"
