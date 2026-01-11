@@ -28,6 +28,18 @@ else
   echo "[+] OpenVPN removed successfully"
 fi
 
+# Configure sudoers for Waybar CPU power monitoring
+echo "[+] Configuring sudoers for Waybar CPU power monitoring..."
+echo "$USER ALL=(ALL) NOPASSWD: /usr/bin/cat" | sudo tee /etc/sudoers.d/10_waybar_cpu_power
+sudo chmod 0440 /etc/sudoers.d/10_waybar_cpu_power
+echo "[✓] Waybar CPU power monitoring configured successfully"
+
+# Configure sudoers for Waybar GPU power monitoring
+echo "[+] Configuring sudoers for Waybar GPU power monitoring..."
+echo "$USER ALL=(ALL) NOPASSWD: /usr/bin/cat" | sudo tee /etc/sudoers.d/11_waybar_gpu_power
+sudo chmod 0440 /etc/sudoers.d/11_waybar_gpu_power
+echo "[✓] Waybar GPU power monitoring configured successfully"
+
 # Automatically mount disks so they can be accessible
 echo "[+] Configuring automatic disk mounting..."
 echo "# Entry for 1TB HDD (sda1)" | sudo tee -a /etc/fstab 

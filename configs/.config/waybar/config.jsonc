@@ -8,16 +8,20 @@
   "modules-left": ["clock", "hyprland/language", "custom/weather", "hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
   "modules-right": [
-    // "temperature#gpu",
-    // "cava",
-    // "mpris",
     // "custom/vpn",
     "network",
+
+    "temperature#gpu",
+    "custom/gpu-power",
+    "custom/gpu-usage",
+
     "temperature#cpu",
+    "custom/cpu-power",
     "cpu",
+
     "memory",
-    "pulseaudio" /* , "tray" */
-    // "custom/updates"
+
+    "pulseaudio"
   ],
   "hyprland/window": {
     "format": "{title}",
@@ -61,12 +65,12 @@
     "on-click": "hyprctl switchxkblayout rdr-rainy-75 next"
   },
 
-  "custom/vpn": {
+  /* "custom/vpn": {
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/vpn-status.sh",
     "on-click": "~/.config/waybar/scripts/vpn-toggle.sh",
     "signal": 10
-  },
+  }, */
 
   "custom/weather": {
     "interval": 600,
@@ -74,18 +78,6 @@
     "exec": "node ~/.config/waybar/scripts/weather.js", //"~/.config/waybar/scripts/waybar-wttr.py"
     "return-type": "json"
   },
-
-  "custom/updates": {
-    "interval": 3600,
-    "exec": "~/.config/waybar/scripts/updates-status.sh",
-    "on-click": "~/.config/waybar/scripts/update-packages.sh",
-    "return-type": "json"
-  },
-
-  /* "tray": {
-    "icon-size": 18,
-    "spacing": 10
-  }, */
 
   "clock": {
     "timezone": "Europe/Kyiv",
@@ -132,51 +124,39 @@
     "interval": 2
   },
 
-  /*   "mpris": {
-    "format": "{dynamic}",
-    "format-paused": "{player_icon} ",
-    "interval": 1,
-    "player-icons": {
-      "default": "▶",
-      "mpv": "🎵"
-    },
-    "status-icons": {
-      "paused": "⏸"
-    }
-  },
- */
-  /* "cava": {
-    "framerate": 144,
-    "autosens": 1,
-    "bars": 12,
-    "bar_width": 1,
-    "method": "pipewire",
-    "source": "auto",
-    "reverse": false,
-    "bar_delimiter": 0,
-    "waves": true,
-    "input_delay": 2,
-    "hide_on_silence": true,
-    "sleep_timer": 5,
-    "format-icons": [" ", "▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
-  },
- */
-  /* "temperature#gpu": {
-    "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input", // 0,1 - nvme | 2 gpu | 3 cpu | 4 motherboard
-    "format": "<span size='16000' foreground='#eadea2'></span> {temperatureC}°C",
+  "temperature#gpu": {
+    "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "format": "<span size='16000' foreground='#f38ba8'></span> {temperatureC}°C",
     "tooltip-format": "GPU temperature:  {temperatureC}°C",
-    "interval": 2,
+    "interval": 3,
     "critical-threshold": 80
-  }, */
+  },
+  "custom/gpu-usage": {
+    "exec": "~/.config/waybar/scripts/gpu-stats.sh",
+    "format": "<span size='16000' foreground='#f38ba8'>󰾲</span> {}%",
+    "tooltip-format": "GPU Usage",
+    "interval": 3
+  },
+  "custom/gpu-power": {
+    "exec": "~/.config/waybar/scripts/gpu-power.sh",
+    "format": "<span size='17000' foreground='#f38ba8'>󱐋</span> {}",
+    "tooltip-format": "GPU Power Consumption",
+    "interval": 3
+  },
 
   "temperature#cpu": {
-    "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input", // 0,1 - nvme | 2 gpu | 3 cpu | 4 motherboard
+    "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input", // 0,1 - nvme | 2 gpu | 3 cpu | 4 motherboard
     "format": "<span size='16000' foreground='#25bcf8'></span> {temperatureC}°C",
     "tooltip-format": "CPU temperature:  {temperatureC}°C",
     "interval": 3,
     "critical-threshold": 80
   },
-
+  "custom/cpu-power": {
+    "exec": "~/.config/waybar/scripts/cpu-power.sh",
+    "format": "<span size='17000' foreground='#25bcf8'>󱐋</span> {}",
+    "tooltip-format": "CPU Power Consumption",
+    "interval": 3
+  },
   "cpu": {
     "interval": 3,
     "format": "<span size='15000' foreground='#25bcf8'></span> {usage}%"

@@ -11,16 +11,14 @@
 #workspaces,
 #window,
 #temperature,
+#custom-gpu-usage,
+#custom-gpu-power,
+#custom-cpu-power,
 #cpu,
 #memory,
 #pulseaudio,
-#cava,
-#mpris,
-#network,
-#custom-vpn,
-#custom-notifications,
-#tray,
-#custom-updates {
+#network {
+  /* #custom-vpn  */
   background: #1e1e2e;
   color: #cdd6f4;
   opacity: 0.8;
@@ -42,7 +40,7 @@
   min-width: 30px;
 }
 
-#custom-vpn {
+/* #custom-vpn {
   margin-right: 6px;
 }
 
@@ -56,77 +54,10 @@
   color: #eba0ac;
   border-bottom: 2px solid #eba0ac;
   transition: all 0.3s ease;
-}
-
-#custom-notifications {
-  margin-right: 6px;
-  font-size: 20px;
-}
-
-#custom-notifications.empty {
-  color: #6c7086;
-}
-
-#custom-notifications.active {
-  color: #a6e3a1;
-  border-bottom: 2px solid #a6e3a1;
-  transition: all 0.3s ease;
-  animation: pulse-notification 2s ease-in-out infinite;
-}
-
-#custom-notifications.dnd {
-  color: #89b4fa;
-  border-bottom: 2px solid #89b4fa;
-  transition: all 0.3s ease;
-}
-
-@keyframes pulse-notification {
-  0% {
-    color: #a6e3a1;
-  }
-  12% {
-    color: #88c481;
-  }
-  25% {
-    color: #6aa561;
-  }
-  37% {
-    color: #4c8641;
-  }
-  50% {
-    color: #1e1e2e;
-  }
-  63% {
-    color: #4c8641;
-  }
-  75% {
-    color: #6aa561;
-  }
-  87% {
-    color: #88c481;
-  }
-  100% {
-    color: #a6e3a1;
-  }
-}
+} */
 
 #pulseaudio {
   margin-right: 10px;
-}
-
-#custom-updates {
-  margin-right: 10px;
-  padding-left: 6px;
-  padding-right: 12px;
-}
-
-#custom-updates.active {
-  color: #a6e3a1;
-}
-
-#custom-updates.inactive {
-  color: #eba0ac;
-  animation: blink-updates 3s infinite;
 }
 
 #custom-weather {
@@ -186,23 +117,50 @@ tooltip {
 }
 
 #network.disconnected {
-  color: #eba0ac;
   padding-right: 14px;
-  animation: blink 2s infinite;
+  animation: blink-red 2s infinite;
 }
 
-#temperature.cpu {
+#temperature.gpu {
   margin-left: 6px;
   border-radius: 6px 0 0 6px;
 }
 
+#custom-gpu-power {
+  border-radius: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#custom-gpu-usage {
+  border-radius: 0 6px 6px 0;
+  margin-right: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#temperature.cpu {
+  margin-left: 0;
+  border-radius: 6px 0 0 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 #temperature.critical {
-  color: #eba0ac;
+  animation: blink-red 2s infinite;
+}
+
+#custom-cpu-power {
+  border-radius: 0;
+  margin-left: 0;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 #cpu {
   border-radius: 0 6px 6px 0;
   font-size: 20px;
+  margin-left: 0;
 }
 
 #memory {
@@ -211,41 +169,11 @@ tooltip {
   border-radius: 6px;
 }
 
-#tray {
+/* #tray {
   margin-right: 10px;
-}
+} */
 
-@keyframes blink {
-  0% {
-    color: #eba0ac;
-  }
-  12% {
-    color: #b8808c;
-  }
-  25% {
-    color: #85606c;
-  }
-  37% {
-    color: #52404d;
-  }
-  50% {
-    color: #1e1e2e;
-  }
-  63% {
-    color: #52404d;
-  }
-  75% {
-    color: #85606c;
-  }
-  87% {
-    color: #b8808c;
-  }
-  100% {
-    color: #eba0ac;
-  }
-}
-
-@keyframes blink-updates {
+@keyframes blink-red {
   0% {
     color: #eba0ac;
   }

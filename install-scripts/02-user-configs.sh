@@ -19,6 +19,11 @@ echo "[+] Copying configuration files..."
 # Fix config permissions
 chmod -R 755 "$HOME/.config" 2>/dev/null || true
 
+# Set executable permissions for waybar scripts
+echo "[+] Setting executable permissions for waybar scripts..."
+chmod +x "$HOME/.config/waybar/scripts/"*.sh 2>/dev/null || true
+chmod +x "$HOME/.config/waybar/scripts/"*.js 2>/dev/null || true
+
 # Apply GTK theme and icons
 echo "[+] Applying GTK theme and icons..."
 mkdir -p "$HOME/.config/gtk-3.0"
