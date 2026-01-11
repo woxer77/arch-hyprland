@@ -81,7 +81,7 @@ case ${chosen} in
     $lock)
 		pkill -USR1 rofi
 
-		hyprlock
+		~/.config/hypr/random-wallpaper.sh && hyprlock
 		;;
     $suspend)
 		run_cmd --suspend
