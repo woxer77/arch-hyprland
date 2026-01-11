@@ -128,22 +128,16 @@ tooltip {
 
 #custom-gpu-power {
   border-radius: 0;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 #custom-gpu-usage {
   border-radius: 0 6px 6px 0;
   margin-right: 6px;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 #temperature.cpu {
   margin-left: 0;
   border-radius: 6px 0 0 6px;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 #temperature.critical {
@@ -153,8 +147,6 @@ tooltip {
 #custom-cpu-power {
   border-radius: 0;
   margin-left: 0;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 #cpu {
