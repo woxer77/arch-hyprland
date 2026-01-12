@@ -47,6 +47,11 @@ echo "UUID=9E9A93F69A93C8E3 /mnt/d ntfs-3g defaults,nofail 0 0" | sudo tee -a /e
 echo "# Entry for 1TB NVMe (nvme1n1p5)" | sudo tee -a /etc/fstab
 echo "UUID=6A18EBE718EBAFED /mnt/e ntfs-3g defaults,nofail 0 0" | sudo tee -a /etc/fstab
 
+# Configure hardware clock to use local time (dual-boot compatibility)
+echo "[+] Configuring hardware clock to use local time..."
+sudo timedatectl set-local-rtc 1 --adjust-system-clock
+echo "[✓] Hardware clock configured to use local time"
+
 # Enable GDM (display manager)
 echo "[+] Enabling GDM display manager..."
 sudo systemctl enable gdm
