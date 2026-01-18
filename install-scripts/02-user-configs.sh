@@ -65,6 +65,7 @@ if command -v gsettings &>/dev/null; then
   gsettings set org.gnome.desktop.interface gtk-theme 'catppuccin-mocha-flamingo-standard+default'
   gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+  gsettings set org.gnome.nautilus.preferences default-sort-order 'type'
 fi
 
 # Apply theme CSS for GTK3 and GTK4/libadwaita apps (like Nautilus)
