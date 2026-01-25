@@ -118,4 +118,19 @@ if [ -d "$REPO_DIR/Wallpapers" ]; then
   cp -r "$REPO_DIR/Wallpapers" "$HOME/Wallpapers"
 fi
 
+# Add "Start Hytale Server" to Walker
+echo ""
+read -p "[?] Do you want to add 'Start Hytale Server' app to Walker? (y/n): " add_hytale
+if [[ "$add_hytale" =~ ^[Yy]$ ]]; then
+  echo "[+] Adding 'Start Hytale Server' desktop entry..."
+  mkdir -p "$HOME/.local/share/applications"
+  if [ -f "$REPO_DIR/configs/other/hytale-server.desktop" ]; then
+    sed "s|/home/woxer|$HOME|g" "$REPO_DIR/configs/other/hytale-server.desktop" > "$HOME/.local/share/applications/hytale-server.desktop"
+    chmod +x "$HOME/.local/share/applications/hytale-server.desktop"
+    echo "[✓] 'Start Hytale Server' added to Walker!"
+  else
+    echo "[-] File configs/other/hytale-server.desktop not found!"
+  fi
+fi
+
 echo "[✓] User configurations applied successfully!"

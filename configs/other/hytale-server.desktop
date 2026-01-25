@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Start Hytale Server
+Comment=Start the Hytale server
+Exec=/home/woxer/hytale/server/start.sh
+Icon=/var/lib/flatpak/exports/share/icons/hicolor/256x256/apps/com.hypixel.HytaleLauncher.png
+Terminal=true
+Categories=Game;
